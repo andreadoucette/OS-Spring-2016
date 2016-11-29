@@ -60,21 +60,3 @@ artifacts {
   archives sourceJar
   archives javadocJar
 }
-
-def home = System.properties ['user.home']
-repositories {
-  flatDir {
-    name 'fileRepo'
-    dirs new File (home, 'repo')
-  }
-}
-
-dependencies {
-  compile project (':utilities')
-}
-
-uploadArchives {
-  repositories {
-    add project.repositories.fileRepo
-  }
-}
